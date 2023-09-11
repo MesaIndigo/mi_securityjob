@@ -16,13 +16,13 @@ RegisterCommand('callbackup', function()
         RequestModel(model)
         while not HasModelLoaded(model) do
             RequestModel(model)
-            Citizen.Wait(0)
+            Wait(0)
         end
         veh = CreateVehicle(model, spawn.x, spawn.y, spawn.z, spawn.w, true, false)
         SetEntityAsMissionEntity(veh, true, true)
 
         SetPedIntoVehicle(ped, veh, -1)
-        Citizen.Wait(1000)
+        Wait(1000)
         TaskVehicleDriveToCoord(ped, veh, dest.x, dest.y, dest.z, 30.0, 1.0, model, 28, 2.0, 4 )
 
         local sphere = lib.zones.sphere({
@@ -43,12 +43,12 @@ RegisterCommand('call1', function()
         RequestModel(model)
         while not HasModelLoaded(model) do
             RequestModel(model)
-            Citizen.Wait(0)
+            Wait(0)
         end
 
         TriggerServerEvent('misj:sever:spawn:backup', veh, model, char, spawn)
 
-        Citizen.Wait(1000)
+        Wait(1000)
         TaskVehicleDriveToCoord(ped, veh, dest.x, dest.y, dest.z, 30.0, 1.0, model, 28, 2.0, 4 )
 
         local sphere = lib.zones.sphere({
